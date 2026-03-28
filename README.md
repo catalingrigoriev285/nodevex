@@ -1,4 +1,4 @@
-![thumbnail](assets/thumbnail.png)
+![thumbnailv1](assets/thumbnail.png)
 
 Base URL: http://localhost:3000 (or set `PORT` in `.env`)
 
