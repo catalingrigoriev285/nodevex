@@ -81,4 +81,32 @@ const updatePost = async (req, res) => {
     }
 };
 
-export { createPost, getPosts, updatePost };
+const deletePost = async (req, res) => {
+    try {
+        const { id } = req.body;
+
+        if (!id) {
+            return res.status(400).json({ error: "Post ID is required" });
+        }
+
+        const deletedPost = await Post.findByIdAndDelete(id);
+
+        if (!deletedPost) {
+            return res.status(404).json({ error: "Post not found" });
+        }
+
+        res.status(200).json({
+            message: "Post deleted successfully",
+            post: deletedPost,
+        });
+    } catch (error) {
+        console.error("Error deleting post:", error, error.stack);
+        res.status(500).json({
+            error: "Failed to delete post",
+            details: error.message,
+        });
+    }
+};
+
+
+export { createPost, getPosts, updatePost, deletePost };
