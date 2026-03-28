@@ -45,4 +45,40 @@ const getPosts = async (req, res) => {
     }
 };
 
-export { createPost, getPosts };
+const updatePost = async (req, res) => {
+    try {
+        const { id, title, content } = req.body;
+
+        // validations
+        if (!title && !content) {
+            return res
+                .status(400)
+                .json({
+                    error: "At least one of title or content is required",
+                });
+        }
+
+        const updatedPost = await Post.findByIdAndUpdate(
+            id,
+            { title, content },
+            { new: true },
+        );
+
+        if (!updatedPost) {
+            return res.status(404).json({ error: "Post not found" });
+        }
+
+        res.status(200).json({
+            message: "Post updated successfully",
+            post: updatedPost,
+        });
+    } catch (error) {
+        console.error("Error updating post:", error, error.stack);
+        res.status(500).json({
+            error: "Failed to update post",
+            details: error.message,
+        });
+    }
+};
+
+export { createPost, getPosts, updatePost };
