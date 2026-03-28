@@ -1,0 +1,29 @@
+{
+  "name": "nodevex",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/catalingrigoriev285/nodevex#readme",
+  "bugs": {
+    "url": "https://github.com/catalingrigoriev285/nodevex/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catalingrigoriev285/nodevex.git"
+  },
+  "license": "ISC",
+  "author": "Catalin Grigoriev",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3",
+    "nodemon": "^3.1.14"
+  }
+}
