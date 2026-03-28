@@ -1,5 +1,3 @@
-# Nodevex API
-
 Base URL: http://localhost:3000 (or set `PORT` in `.env`)
 
 ## Users
